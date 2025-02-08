@@ -2,7 +2,7 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:postgresql://localhost:5434/mcs25_db
+    url: jdbc:postgresql://localhost:5434/user_db
     password: root
     username: root
   flyway:
