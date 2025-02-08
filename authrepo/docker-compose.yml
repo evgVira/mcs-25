@@ -2,10 +2,10 @@ version: '3.8'
 services:
   db:
     image: postgres:15
-    container_name: postgres-mcs25-user_db
+    container_name: postgres-mcs25-auth_db
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: user_db
+      POSTGRES_DB: auth_db
     ports:
-      - 5434:5432
+      - 5435:5432

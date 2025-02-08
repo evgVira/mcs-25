@@ -38,11 +38,12 @@ public class UserEntityServiceImpl implements UserEntityService {
     @Transactional
     public UserEntityCreateResponseDto createUser(UserEntityCreateRequestDto userEntityCreateRequestDto) {
         if (existsByEmail(userEntityCreateRequestDto.getEmail())) {
+            log.warn(String.format(USER_WITH_EMAIL_ALREADY_EXISTS, userEntityCreateRequestDto.getEmail()));
             throw new IllegalArgumentException(USER_WITH_EMAIL_ALREADY_EXISTS);
         }
         UserEntity user = userEntityMapper.mapToUserEntity(userEntityCreateRequestDto);
         userEntityRepository.save(user);
-        log.info("user with was saved");
+        log.info("user was saved");
         return userEntityMapper.mapToUserEntityCreateResponseDto(user);
     }
 
